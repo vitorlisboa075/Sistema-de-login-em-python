@@ -5,6 +5,8 @@ print(dadosUsuario.cpf)
 print(dadosUsuario.email)
 print(dadosUsuario.senha)
 
+
+
 verificar = dadosUsuario.cpf
 
 dadosUsuario.verificarCPFn(verificar)

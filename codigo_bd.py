@@ -1,4 +1,5 @@
 
+
 # formatando para POO
 
 import sqlite3
@@ -13,4 +14,4 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS tabela_login (
 
 cursor.execute("""INSERT INTO tabela_login 
                (email, senha) VALUES (?, ?)
-""",(email, senha))
+""",(dadosUsuario.email, dadosUsuario.senha))

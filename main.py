@@ -1,14 +1,18 @@
 import sqlite3
-
+from usuario import Usuario
+dadadosUsuario = Usuario("", "","")
 conxao = sqlite3.connect("banco.db")
 cursor = conxao.cursor()
 
-email= input ("digite seu email")
-senha = input(" digite sua senha")
-quantidade = len(senha)
+dadadosUsuario.puxarEmail()
+dadadosUsuario.puxarSenha()
+dadadosUsuario.mostrar()
 
+#email= dadadosUsuarioc.puxarEmail()
 
-if "@gmail" in email and quantidade >= 8 :
+quantidade = len(dadadosUsuario.senha)
+
+if "@gmail" in dadadosUsuario.email and quantidade >= 8 :
     cursor.execute("""CREATE TABLE IF NOT EXISTS tabela_login (
                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
                email TEXT NOT NULL,
@@ -17,7 +21,7 @@ if "@gmail" in email and quantidade >= 8 :
 
     cursor.execute("""INSERT INTO tabela_login 
                (email, senha) VALUES (?, ?)
-""",(email, senha))
+""",(dadadosUsuario.email, dadadosUsuario.senha))
     print("login feito")
 else: 
     print("email deve conter @GMAIL.COM")
